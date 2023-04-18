@@ -1,0 +1,24 @@
+---
+- name: Vector Install package
+  become: true
+  ansible.builtin.yum:
+    name: https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_version }}-1.{{ ansible_architecture }}.rpm
+    state: present
+  notify: enable service Vector
+  tags:
+    - vector
+
+- name: Configure Vector | Template config
+  become: true
+  ansible.builtin.template:
+    src: /home/usrcon/08-ansible-03-yandex/playbook/templates/vector.toml.j2
+    mode: 0644
+    dest: "{{ vector_config_dir }}/vector.toml"
+  notify: restart vector service
+  tags:
+    - vector
+
+- name: Flush handlers
+  meta: flush_handlers
+  tags:
+    - vector
