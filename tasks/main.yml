@@ -11,7 +11,7 @@
 - name: Configure Vector | Template config
   become: true
   ansible.builtin.template:
-    src: /home/usrcon/08-ansible-03-yandex/playbook/templates/vector.toml.j2
+    src: templates/vector.toml.j2
     mode: 0644
     dest: "{{ vector_config_dir }}/vector.toml"
   notify: restart vector service
@@ -22,3 +22,5 @@
   meta: flush_handlers
   tags:
     - vector
+
+#    src: /home/usrcon/08-ansible-03-yandex/playbook/templates/vector.toml.j2
