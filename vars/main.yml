@@ -1,2 +1,2 @@
 ---
-vector_config_dir: "/etc/vector"
+# vars file for vector_role

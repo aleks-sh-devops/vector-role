@@ -1,0 +1,19 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: Example assertion
+    assert:
+      that: true
+  - name: Show version vector app
+    ansible.builtin.command: "vector --version"
+    changed_when: false
+    register: vector_version
+
+  - name: Assert Vector instalation
+    assert:
+      that: "'{{ vector_version.rc }}' == '0'"
+
