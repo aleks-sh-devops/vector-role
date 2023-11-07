@@ -1,4 +1,4 @@
-vector v 1.0.0
+vector v 1.0.1
 =========
 
 This role can install vector on EL
