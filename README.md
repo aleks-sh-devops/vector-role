@@ -1,4 +1,4 @@
-vector v 1.0.5
+vector v 1.0.6
 =========
 
 This role can install vector on EL
@@ -37,6 +37,11 @@ tox with podman driver:
 docker run --privileged=True -v ${PWD}:/opt/vector-role -w /opt/vector-role -it aragast/netology:latest /bin/bash
 
 tox
+```
+
+Molecule with podman driver:..
+```
+molecule test -s podman
 ```
 
 License
