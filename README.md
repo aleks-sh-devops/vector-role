@@ -24,6 +24,14 @@ Tags
 -------
 - vector
 
+Tests
+-------
+
+Molecule with docker driver:  
+```
+molecule test -s default
+```
+
 License
 -------
 
